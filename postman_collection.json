@@ -1,0 +1,750 @@
+{
+	"info": {
+		"_postman_id": "dcc65b11-95e4-45a2-877e-c9f2e324b4ec",
+		"name": "Itexc Agency - Doctor Office API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3137266"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZXJpZmFAZ21haWwuY29tIiwic3ViIjoiY2xvbHlqazVuMDAwMjAzMTl4NTJwcXNzMyIsInJvbGUiOiJET0NUT1IiLCJpYXQiOjE2OTkzODM4NzB9.B-X_00AWg560no3b5eJYgENB8VzC7Ep4Vk2Nx1k0keg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@itexc.com\",\n    \"password\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MmIwMzM5Ny03NjVlLTQ1ODAtYjU5YS1hZGMyYzkyOWEyNDIiLCJpYXQiOjE2OTk4MDc5MDd9.iU1Z8R2PrKlTZw0mxDyrBNajkrMPm5-hmlp9GiCISaE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"doctor\",\n    \"email\": \"admin@itexc.com\",\n    // \"birthday\": \"2023-11-12\",\n    // \"address\": \"dergana\",\n    \"specialization\": \"Internal medicine updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/auth/me",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5MTM4YmQ2NS0wOGNkLTRmMDktYTZhOC0xZmFhZmFjNDFmMDgiLCJpYXQiOjE2OTk4MDgwOTR9.sxHx9Kf_gmFBxHhGv4f_eg-eh46LnmxTqyHABXFpQ50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/auth/me",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYzNlZTU5MC02ZWIxLTQwOWYtYjc4Ni0wOTY5NWM1ZWZiYjkiLCJpYXQiOjE2OTk4MTE1NTF9.vYhChr8AvXL6uL_hL-terHHgEl4o1MehieK8rP1KFtw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"patient_2\",\n    \"email\": \"patient_2@itexc.com\",\n    \"password\": \"1234567890\",\n    \"role\": \"PATIENT\", // ADMIN, DOCTOR, PATIENT, ADMINISTRATIVE_STAFF\n    \"birthday\": \"11/12/2023\",\n    \"address\": \"Algiers\",\n    \"specialization\": \"Generalite\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/users",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzYzI4YzE3Zi1hYWFjLTQ3YjEtODgyYy04ZWY1YzA1ZDE5MzkiLCJpYXQiOjE2OTk3OTQ0OTd9.P7eb_xuy5S4Atxi7YIfVcRGJoXyGGPMSWuxxn2g8f0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/users",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYzNlZTU5MC02ZWIxLTQwOWYtYjc4Ni0wOTY5NWM1ZWZiYjkiLCJpYXQiOjE2OTk4MTE3NjF9.gn_p0NdiZCe5yORl-UD-4jg8S4SGmbEzu4QI6P4dCaM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/users/9138bd65-08cd-4f09-a6a8-1faafac41f08",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"9138bd65-08cd-4f09-a6a8-1faafac41f08"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5Yjk4YTY1YS02YzIxLTQ2MzAtYTNiOS04YmE1ODIxZmVlYjUiLCJpYXQiOjE2OTk3OTU4MjB9.VbtSoYBjB4ggrt3ncox_HaIONyO8-4oxqRIvMJnkCZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"user\",\n    \"email\": \"doctorw@itexc.com\",\n    \"password\": \"1234567890\",\n    \"role\": \"DOCTOR\", // ADMIN, DOCTOR, PATIENT, ADMINISTRATIVE_STAFF\n    \"birthday\": \"11/12/2023\",\n    \"address\": \"Algiers\",\n    \"specialization\": \"Generalite\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/users/9b98a65a-6c21-4630-a3b9-8ba5821feeb5",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"9b98a65a-6c21-4630-a3b9-8ba5821feeb5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYzNlZTU5MC02ZWIxLTQwOWYtYjc4Ni0wOTY5NWM1ZWZiYjkiLCJpYXQiOjE2OTk4MDczMjF9.D-USqEyGCKgnKX3RZ9TzhIDAvJXlvKBrkm_fVldXRKw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"patient\",\n    \"email\": \"patient@itexc.com\",\n    \"password\": \"1234567890\",\n    \"role\": \"PATIENT\", // ADMIN, DOCTOR, PATIENT, ADMINISTRATIVE_STAFF\n    \"birthday\": \"11/12/2020\",\n    \"address\": \"Algiers\"\n    // \"specialization\": \"Generalite\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/users/9138bd65-08cd-4f09-a6a8-1faafac41f08",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"9138bd65-08cd-4f09-a6a8-1faafac41f08"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "prescriptions",
+			"item": [
+				{
+					"name": "prescription items",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"medication\": \"medication\",\n    \"dosage\": \"dosage\",\n    \"frequency\": \"frequency\",\n    \"startAt\": \"2023-08-10\",\n    \"endAt\": \"2023-10-20\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{BASE_URL}}/prescriptions/687d33fe-14f3-4677-8ef2-575fd8142e2e/prescription-items",
+									"protocol": "http",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"prescriptions",
+										"687d33fe-14f3-4677-8ef2-575fd8142e2e",
+										"prescription-items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"medication\": \"medication\",\n    \"dosage\": \"dosage\",\n    \"frequency\": \"frequency\",\n    \"startAt\": \"2023-10-20\",\n    \"endAt\": \"2023-10-30\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{BASE_URL}}/prescription-items/5a89ea78-bd77-4d5f-b9e6-038304d5441a",
+									"protocol": "http",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"prescription-items",
+										"5a89ea78-bd77-4d5f-b9e6-038304d5441a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"medication\": \"medication\",\n    \"dosage\": \"dosage\",\n    \"frequency\": \"frequency\",\n    \"startAt\": \"2023-10-20\",\n    \"endAt\": \"2023-10-30\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{BASE_URL}}/prescription-items/5a89ea78-bd77-4d5f-b9e6-038304d5441a",
+									"protocol": "http",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"prescription-items",
+										"5a89ea78-bd77-4d5f-b9e6-038304d5441a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MmIwMzM5Ny03NjVlLTQ1ODAtYjU5YS1hZGMyYzkyOWEyNDIiLCJpYXQiOjE2OTk4MDgxMzJ9.LKNqXrZmdNIRlr774v0dKWnscsFQDxLgmf0jJ2eX4Wc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"16addeba-61f1-4c7f-846c-6e1dad0a7e81\",\n    // TODO: we can fill doctor with current user\n    \"doctor\": \"48ba37f0-48ec-42d3-8c6b-c8647af50678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/prescriptions",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"prescriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNzlkZWQ5Ny1jZDljLTRlZTctOGYzMC0xYzVkMjY2MDNlZmUiLCJpYXQiOjE2OTk2OTk5MzJ9.Pcog4JgGNjkCnuf3eDA0QUKhkcuie_3Ivb4xESeGWKs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"3ec71cc0-d8a3-4004-8c6d-69e0cbb1a788\",\n    \"doctor\": \"d44c2b69-1ee4-4ef0-8446-a40e673090a9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/prescriptions/3118affb-5f9c-49c4-9fa1-425b7504aae4",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"prescriptions",
+								"3118affb-5f9c-49c4-9fa1-425b7504aae4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNzlkZWQ5Ny1jZDljLTRlZTctOGYzMC0xYzVkMjY2MDNlZmUiLCJpYXQiOjE2OTk2OTk5MzJ9.Pcog4JgGNjkCnuf3eDA0QUKhkcuie_3Ivb4xESeGWKs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/prescriptions/3118affb-5f9c-49c4-9fa1-425b7504aae4",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"prescriptions",
+								"3118affb-5f9c-49c4-9fa1-425b7504aae4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MjhiZDI5Zi1jYjNkLTQ4NzMtYjc3Yi1jZmI1MGI0MDM2MmUiLCJpYXQiOjE2OTk4MTE2MDN9.RP7MUPO7qrm7HxqR5I0U9zf6T9n6RS27mbGN8Bje6NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/prescriptions",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"prescriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MjhiZDI5Zi1jYjNkLTQ4NzMtYjc3Yi1jZmI1MGI0MDM2MmUiLCJpYXQiOjE2OTk4MTE2MDN9.RP7MUPO7qrm7HxqR5I0U9zf6T9n6RS27mbGN8Bje6NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/prescriptions/687d33fe-14f3-4677-8ef2-575fd8142e2e",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"prescriptions",
+								"687d33fe-14f3-4677-8ef2-575fd8142e2e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "medical-history",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNzlkZWQ5Ny1jZDljLTRlZTctOGYzMC0xYzVkMjY2MDNlZmUiLCJpYXQiOjE2OTk2OTc5MDF9._C66PLFP6i27mc-V5Hge99-dpX1iqq2seuqfLi-jGes",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"d2cca6ff-7928-44dc-affc-fce3a7e79ffd\",\n    \"doctor\": \"986ecee3-fd07-4172-a20d-52a27ebb823d\",\n    \"diagnosis\": \"diagnosis\",\n    \"treatment\": \"treatment\",\n    \"notes\": \"notes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/medical-history",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medical-history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNzlkZWQ5Ny1jZDljLTRlZTctOGYzMC0xYzVkMjY2MDNlZmUiLCJpYXQiOjE2OTk2OTc5MDF9._C66PLFP6i27mc-V5Hge99-dpX1iqq2seuqfLi-jGes",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"3ec71cc0-d8a3-4004-8c6d-69e0cbb1a788\",\n    \"doctor\": \"986ecee3-fd07-4172-a20d-52a27ebb823d\",\n    \"diagnosis\": \"diagnosis updated\",\n    \"treatment\": \"treatment updated\",\n    \"notes\": \"notes updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/medical-history/56a17b69-4d53-43ab-99a3-1b1bd5e6144e",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medical-history",
+								"56a17b69-4d53-43ab-99a3-1b1bd5e6144e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNzlkZWQ5Ny1jZDljLTRlZTctOGYzMC0xYzVkMjY2MDNlZmUiLCJpYXQiOjE2OTk2OTc5MDF9._C66PLFP6i27mc-V5Hge99-dpX1iqq2seuqfLi-jGes",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"3ec71cc0-d8a3-4004-8c6d-69e0cbb1a788\",\n    \"doctor\": \"986ecee3-fd07-4172-a20d-52a27ebb823d\",\n    \"diagnosis\": \"diagnosis updated\",\n    \"treatment\": \"treatment updated\",\n    \"notes\": \"notes updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/medical-history/56a17b69-4d53-43ab-99a3-1b1bd5e6144e",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medical-history",
+								"56a17b69-4d53-43ab-99a3-1b1bd5e6144e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYWRjYzcyMC00MWY5LTRlMzctOGQyYS05N2U5YWUyNDIyZTYiLCJpYXQiOjE2OTk2OTkxNjZ9.GrFNz9NMz78rIbu__cB7vAceEdZuQ14xjroY5l3dKvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/medical-history/fec88a10-6b79-4910-925c-870f657481ce",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medical-history",
+								"fec88a10-6b79-4910-925c-870f657481ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5MTM4YmQ2NS0wOGNkLTRmMDktYTZhOC0xZmFhZmFjNDFmMDgiLCJpYXQiOjE2OTk4MTEzOTZ9.fwND-GYT5nSuxxDfMu_8gJozrhoc5S8boXGs2pAE2AM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/medical-history",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medical-history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
